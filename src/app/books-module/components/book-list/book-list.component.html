@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="book-list" *ngFor="let book of books">
         <h3>{{book.title}}</h3>
         <h3>{{book.author}}</h3>
@@ -7,7 +7,48 @@
         <h3>{{book.availablequantity}}</h3>
         <h3>{{book.isbn_code}}</h3>
     </div>
-        <!-- <div>
-            <button type="button" onclick="addBook()">Registrar</button>
-        </div> -->
-</div>
+    
+</div> -->
+<div class="container">
+  <div class="search">
+      <mat-form-field>
+          <input matInput placeholder="Buscar libro..." #search>
+        </mat-form-field>
+        <div class="card-grid">
+          <mat-card *ngFor="let book of filteredBooks" class="mat-card-item">
+            <mat-card-header>
+              <mat-card-title>{{book.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{book.author}} 
+              </p>
+              <p>
+                {{book.publicationYear}} 
+              </p>
+              <p>
+                {{book.gender}} 
+              </p>
+              
+            </mat-card-content>
+          </mat-card>
+      </div>
+      </div>
+    <div class="card-grid">
+      <mat-card *ngFor="let book of books" class="mat-card-item">
+        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-content>
+          <p><strong>Autor:</strong> {{ book.author }}</p>
+          <p><strong>Año de Publicación:</strong> {{ book.publicationYear }}</p>
+          <p><strong>Género:</strong> {{ book.gender }}</p>
+          <p><strong>Cantidad Disponible:</strong> {{ book.availablequantity }}</p>
+          <p><strong>Código ISBN:</strong> {{ book.isbn_code }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+
+  
+  
+  

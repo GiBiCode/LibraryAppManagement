@@ -1,8 +1,6 @@
-<h1>{{title}}</h1>
-<!-- <nav>
-  <a routerLink="/Libros">Gestión de Libros</a>
-  <a routerLink="/Usuarios">Gestión de Usuarios</a>
-</nav> -->
+
+<h1 [routerLink]="['/']" class="non-link">{{title}}</h1>
+
 
 <app-navigation></app-navigation>
 <router-outlet></router-outlet>

@@ -71,5 +71,6 @@ export class ModalComponent {
 
   addBook(book: Book) {
     this.books.push(book);
+    window.alert('El libro ha sido registrado');
   }
 }

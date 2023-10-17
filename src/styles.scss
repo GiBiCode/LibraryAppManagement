@@ -3,3 +3,10 @@
 h1{
     color:#8819f0;
 }
+.non-link {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Usa el color heredado del texto */
+    cursor: default; /* Cambia el cursor para que no parezca un enlace */
+    color:#8819f0;
+  }
+  

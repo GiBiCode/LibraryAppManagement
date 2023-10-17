@@ -9,12 +9,21 @@ import { ModalComponent } from 'src/app/books-module/components/modal/modal.comp
 })
 export class NavigationComponent {
   //Funcionalidad de la variable submenuOpen para que se despliegue al dar click.
-  submenuOpen: { [key: string]: boolean } = {};
-  dialog: any;
+  // submenuOpen: { [key: string]: boolean } = {};
+  // dialog: any;
 
-  toggleSubmenu(key: string) {
-    this.submenuOpen[key] = !this.submenuOpen[key];
-  }
+  // toggleSubmenu(key: string) {
+  //   this.submenuOpen[key] = !this.submenuOpen[key];
+  // }
   // @Input()
   // book!: Book;
+
+  public active : boolean = false 
+
+  constructor() { }
+  ngOnInit(): void {}
+
+  setActive() : void {
+    this.active = !this.active
+  }
 }
