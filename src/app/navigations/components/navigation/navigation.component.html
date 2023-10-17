@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+          <mat-list-item>
+            <a matLine routerLink="/">Home</a>
+          </mat-list-item>
+          <mat-list-item (click)="toggleSubmenu('books')">
+            <a matLine [routerLink]="['/books']">Books</a>
+              <div *ngIf="submenuOpen['books']">
+                  <mat-nav-list>
+                      <a mat-list-item>Registrar</a>
+                      <a mat-list-item>Consultar</a>
+                  </mat-nav-list>
+              </div>
+          </mat-list-item>
+          <mat-list-item (click)="toggleSubmenu('users')">
+            <a matLine routerLink="/users">Usuarios</a>
+              <div *ngIf="submenuOpen['users']">
+                  <mat-nav-list>
+                      <a mat-list-item routerLink="/users/registration">Registrar</a>
+                      <a mat-list-item>Consultar</a>
+                  </mat-nav-list>
+              </div>
+          </mat-list-item>
+          <mat-list-item>
+              <a matLine routerLink="/">Préstamos</a>
+          </mat-list-item>
+        </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <h1>Gestión de Biblioteca</h1>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

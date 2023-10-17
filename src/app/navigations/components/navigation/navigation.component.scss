@@ -1,0 +1,69 @@
+.mat-sidenav {
+    width: 250px; 
+    height: 100%;
+    background-color: #8819f0; 
+    color: #fff; 
+    text-decoration: none;
+  }
+  .mat-sidenav .mat-list-item {
+    color: #fff; 
+    text-decoration: none; 
+    margin: 16px;
+  }
+  
+  .mat-sidenav .mat-list-item:hover {
+    background-color: #555;
+  }
+  .mat-sidenav-content {
+    padding: 20px;
+    background-color: #f4f4f4; 
+  }
+  .mat-sidenav-content h1 {
+    font-size: 24px; 
+    color: #fff;
+  }
+  /* Estilo para el contenedor del formulario */
+.form-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+/* Estilo para cada grupo de campo */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas de campo */
+.mat-label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo para los campos de entrada */
+.mat-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Estilo para el botón de envío */
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
