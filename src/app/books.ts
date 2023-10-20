@@ -8,8 +8,6 @@ export interface Book {
     isbn_code: string; 
   }
 
-  // books.ts
-
 export const books = [{
    id: 1,
   "title": "Cien Años de Soledad",

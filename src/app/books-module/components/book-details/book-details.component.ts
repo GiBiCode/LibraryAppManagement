@@ -1,10 +1,88 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Book } from '../../../books';
+import { BookService } from 'src/app/books.service';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss']
 })
-export class BookDetailsComponent {
+export class BookDetailsComponent implements OnInit {
+  books: Book[] = [];
+  bookForm: FormGroup;
+  // showForm: boolean = false;
+  isAddingNew = false; 
+  isEditing = false;
+
+  selectedBook: Book = {
+    id: 0, 
+    title: '',
+    author: '',
+    publicationYear: '', 
+    gender: '',
+    availablequantity:0,
+    isbn_code: ''
+  };
+  constructor(private fb: FormBuilder, private bookService: BookService) {
+    this.bookForm = this.fb.group({
+      title: new FormControl(''), 
+      author: new FormControl(''),
+      publicationYear: new FormControl(''),
+      gender: new FormControl(''),
+      availablequantity: new FormControl(''),
+      isbn_code: new FormControl('')
+    });
+  }
+// Función para mostrar el formulario
+openForm() {
+  this.isAddingNew = true;
+  this.isEditing = false
+}
+
+// Función para ocultar el formulario
+cancelForm() {
+  this.isAddingNew = false;
+  this.isEditing = false
+}
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  
+
+  addBook() {
+    // Obtiene los datos del formulario
+    //const newBook: Book = this.bookForm.value;
+    const newBook = this.bookForm.value;
+    // Llama al servicio para agregar el nuevo libro
+    this.bookService.addBook(newBook);
+    // Limpia el formulario
+    this.bookForm.reset();
+  }
+  loadData() {
+    // Utiliza el servicio para obtener todos los libros
+    this.books = this.bookService.getBooks();
+  }
+
+// updateBook(book: Book) {
+//     this.bookService.updateBook(book);
+//   }
+
+onSelect(book: Book) {
+  this.selectedBook = {...book}; 
+}
+updateBook(book: Book) {
+  if (!book) {
+    return;
+  }
+  this.selectedBook = { ...book }; 
+  this.isAddingNew = false;
+  this.isEditing = true;
+}
+  deleteBook(id: number) {
+    this.bookService.deleteBook(id);
+  }
+  
 
 }

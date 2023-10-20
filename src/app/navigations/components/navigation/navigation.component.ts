@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Book } from 'src/app/books';
 import { ModalComponent } from 'src/app/books-module/components/modal/modal.component';
-
+import { BookDetailsComponent } from 'src/app/books-module/components/book-details/book-details.component';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',

@@ -11,9 +11,9 @@ export class BookListComponent {
   books = [...books]; 
   
   items: Book[] = [];
-  addBook(book: Book){
-    this.items.push(book);
-  }
+  // addBook(book: Book){
+  //   this.items.push(book);
+  // }
 
 
   //Filtrar libros

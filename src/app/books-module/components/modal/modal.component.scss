@@ -1,7 +1,7 @@
 .registration-form {
     max-width: 400px;
     margin: 0 auto;
-    display: flex;
+    
     flex-direction: column;
   }
   
@@ -15,6 +15,7 @@
     width: 100%;
     font-size: 14px; /* Tamaño de fuente reducido */
     margin-bottom: 8px; /* Espaciado inferior entre campos */
+    display: block;
   }
   
   
@@ -26,7 +27,9 @@
     padding: 10px 20px;
   }
   
-//   button.btn.btn-primary:hover {
-//     background-color: #0056b3;
-//   }
-  
+  button.btn.btn-primary:hover {
+    background-color: #0056b3;
+  }
+// .margin{
+// 	margin-bottom: 10px;
+// }

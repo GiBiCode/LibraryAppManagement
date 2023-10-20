@@ -8,11 +8,16 @@ import { NavigationComponent } from './navigations/components/navigation/navigat
 import { MaterialModule } from './material/material.module';
 import { ModalComponent } from './books-module/components/modal/modal.component';
 import { BookListComponent } from './books-module/components/book-list/book-list.component';
+import { FormBuilder} from '@angular/forms';
+import { BookService } from './books.service';
+import { FormsModule } from '@angular/forms';
+import { NgModel } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    ModalComponent,
+    ModalComponent
     
   ],
   imports: [
@@ -21,10 +26,15 @@ import { BookListComponent } from './books-module/components/book-list/book-list
     UsersModule,
     BooksModule,
     MaterialModule,
+    FormsModule
     
   ],
   
-  providers: [],
+  providers: [
+    FormBuilder,
+    BookService
+  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
