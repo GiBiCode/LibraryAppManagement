@@ -3,15 +3,15 @@
       <div class="header">
         <p>Gestión de Libros</p>
         
-        <button class="btn btn-primary" (click)="isAddingNew = true">Registrar Libro</button>
+        <button class="btn btn-primary" (click)="isAddingNew = true">Usuario Nuevo</button>
       </div>
       <table class="table table-bordered">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Género</th>
+            <th>Nombre Usuario</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -45,24 +45,16 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="title">Título</label>
-            <input type="text" class="form-control" id="title" placeholder="Título" formControlName="title" />
+            <label for="user_name">Nombre Completo</label>
+            <input type="text" class="form-control" id="user_name" placeholder="Nombres" formControlName="user_name" />
           </div>
           <div class="form-group">
-            <label for="author">Autor</label>
-            <input type="text" class="form-control" id="author" placeholder="Autor" formControlName="author" />
+            <label for="user_phone">Teléfono</label>
+            <input type="text" class="form-control" id="user_phone" placeholder="Teléfono" formControlName="user_phone" />
           </div>
           <div class="form-group">
-            <label for="publicationYear">Año de Publicación</label>
-            <input type="text" class="form-control" id="publicationYear" placeholder="Año de Publicación" formControlName="publicationYear" />
-          </div>
-          <div class="form-group">
-            <label for="gender">Género</label>
-            <input type="text" class="form-control" id="gender" placeholder="Género" formControlName="gender" />
-          </div>
-          <div class="form-group">
-            <label for="availablequantity">Cantidad Disponible</label>
-            <input type="text" class="form-control" id="availablequantity" placeholder="Cantidad Disponible" formControlName="availablequantity" />
+            <label for="publicationYear">Dirección</label>
+            <input type="text" class="form-control" id="user_address" Placeholder="Dirección" formControlName="user_address" />
           </div>
         </div>
       </div>
@@ -91,8 +83,8 @@
       <input type="text" formControlName="availablequantity" name="availablequantity">
       <label>ISBN</label>
       <input type="text" formControlName="isbn_code" name="isbn_code">
-  
-      <button type="submit">Guardar</button>
+      <button class="btn btn-secondary btn-sm" (click)="cancelForm()">Cancelar</button>
+      <button type="submit" (click)="isEditing= false;updateUser(selectedUser)">Guardar</button>
     </form>
   </div>
   

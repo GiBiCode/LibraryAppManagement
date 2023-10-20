@@ -1,0 +1,52 @@
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+  }
+  
+  .header p {
+    margin: 0; 
+  }
+  .container {
+   
+    align-items: center;
+  }
+/* Estilo para el contenedor del formulario */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: justify;
+  
+  background-color: #f0f0f0; 
+  padding: 20px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  
+}
+
+/* Estilo para el título del formulario */
+.form-title {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px;
+  border-radius: 5px 5px 0 0; 
+}
+input {
+  max-width: 100%;
+  margin: 20px; 
+  padding:5px;
+  align-items: center;
+}
+label {
+  text-align: justify; 
+  display: block; 
+  margin: 20px;
+}

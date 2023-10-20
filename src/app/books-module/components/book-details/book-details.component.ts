@@ -15,15 +15,15 @@ export class BookDetailsComponent implements OnInit {
   isAddingNew = false; 
   isEditing = false;
 
-  selectedBook: Book = {
-    id: 0, 
-    title: '',
-    author: '',
-    publicationYear: '', 
-    gender: '',
-    availablequantity:0,
-    isbn_code: ''
-  };
+  // selectedBook: Book = {
+  //   id: 0, 
+  //   title: '',
+  //   author: '',
+  //   publicationYear: '', 
+  //   gender: '',
+  //   availablequantity:0,
+  //   isbn_code: ''
+  // };
   constructor(private fb: FormBuilder, private bookService: BookService) {
     this.bookForm = this.fb.group({
       title: new FormControl(''), 
@@ -37,7 +37,7 @@ export class BookDetailsComponent implements OnInit {
 // Función para mostrar el formulario
 openForm() {
   this.isAddingNew = true;
-  this.isEditing = false
+  this.isEditing = false;
 }
 
 // Función para ocultar el formulario
@@ -69,16 +69,49 @@ cancelForm() {
 //     this.bookService.updateBook(book);
 //   }
 
-onSelect(book: Book) {
-  this.selectedBook = {...book}; 
-}
+// onSelect(book: Book) {
+//   this.selectedBook = {...book}; 
+// }
+// updateBook(book: Book) {
+//   if (!book) {
+//     return;
+//   }
+//   this.selectedBook = { ...book }; 
+//   this.isAddingNew = false;
+//   this.isEditing = true;
+// }
+
 updateBook(book: Book) {
-  if (!book) {
-    return;
-  }
-  this.selectedBook = { ...book }; 
-  this.isAddingNew = false;
+
+  this.bookForm.patchValue({
+    title: book.title,
+    author: book.author,
+    publicationYear : book.publicationYear,
+    gender : book.gender,
+    availablequantity :book.availablequantity,
+    isbn_code : book.isbn_code
+    
+  });
+
+  this.isAddingNew = false; 
   this.isEditing = true;
+
+}
+
+onUpdate() {
+
+  const updatedBook = this.bookForm.value;
+ 
+  const index = this.books.findIndex(b => b.id == updatedBook.id);
+
+  if (index !== -1) {
+      this.books[index] =updatedBook;
+      // Limpia el formulario y finaliza la edición
+    this.bookForm.reset();
+    this.isEditing = false;
+  }
+
+
 }
   deleteBook(id: number) {
     this.bookService.deleteBook(id);

@@ -23,12 +23,10 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private userService: UsersService) {
     this.userForm = this.fb.group({
-      title: new FormControl(''), 
-      author: new FormControl(''),
-      publicationYear: new FormControl(''),
-      gender: new FormControl(''),
-      availablequantity: new FormControl(''),
-      isbn_code: new FormControl('')
+      user_id: new FormControl(''), 
+      user_name: new FormControl(''),
+      user_phone: new FormControl(''),
+      user_address: new FormControl('')
     });
   }
 // Función para mostrar el formulario
@@ -50,7 +48,7 @@ cancelForm() {
 
   addUser() {
     
-    const newUser = this.userForm.value;
+    const newUser :User = this.userForm.value;
     // Llama al servicio para agregar el nuevo libro
     this.userService.addUser(newUser);
     // Limpia el formulario

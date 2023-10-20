@@ -2,7 +2,6 @@
   <div class="col-md-12">
     <div class="header">
       <p>Gestión de Libros</p>
-      
       <button class="btn btn-primary" (click)="isAddingNew = true">Registrar Libro</button>
     </div>
     <table class="table table-bordered">
@@ -27,7 +26,7 @@
             <td>{{book.gender}}</td>
             
             <td >
-              <button  (click)="updateBook(book)">Edit</button>
+              <button  (click)="updateBook(book);isEditing = true">Edit</button>
               <button (click)="deleteBook(book.id)">Delete</button>
             </td>
           </tr>
@@ -75,10 +74,9 @@
 
 
 <!--Formulario de Edición-->
-<div class="form-container" *ngIf="isEditing">
-  <h2>Editar Libro</h2>
-  <form [formGroup]="bookForm" (ngSubmit)="updateBook(selectedBook)">
-   
+<div class="container" style="max-width: 500px;">
+  <form [formGroup]="bookForm" (ngSubmit)="onUpdate()" *ngIf="isEditing">
+   <h6>Editar Libro</h6>
     <label>Título</label>
     <input type="text" formControlName="title" name="title">
     <label>Autor</label>
@@ -91,8 +89,8 @@
     <input type="text" formControlName="availablequantity" name="availablequantity">
     <label>ISBN</label>
     <input type="text" formControlName="isbn_code" name="isbn_code">
-
-    <button type="submit">Guardar</button>
+    <button class="btn btn-secondary btn-sm" (click)="cancelForm()">Cancelar</button>
+    <button type="submit" (click)="isEditing = true">Guardar</button>
   </form>
 </div>
 

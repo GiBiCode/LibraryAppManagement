@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book } from './books';
+import { Book, books } from './books';
 import { FormsModule } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
@@ -27,30 +27,33 @@ export class BookService {
   ];
   constructor() {
     const booksLS = localStorage.getItem('books');
-  
     if(booksLS !== null) {
       this.books = JSON.parse(booksLS);
     }
   }
-  getBooks() {
-    return this.books;
-    
-  }
-  addBook(book: Book) {
-    // Agrega el libro al array
-    this.books.push(book);
 
+  getBooks() {
+    return this.books;    
+  }
+
+  addBook(book: Book) {
+    this.books.push(book);
     localStorage.setItem('books', JSON.stringify(this.books)); 
   }
 
-  updateBook(updatedBook: Book) {
-      const index = this.books.findIndex(b => b.id === updatedBook.id);
-    if (index !== -1) {
-      this.books[index] = updatedBook;
-      localStorage.setItem('books', JSON.stringify(this.books));
-    }
-  }
+  // updateBook(updatedBook: Book) {
+  //     const index = this.books.findIndex(b => b.id === updatedBook.id);
+  //   if (index !== -1) {
+  //     this.books[index] = updatedBook;
+  //     localStorage.setItem('books', JSON.stringify(this.books));
+  //   }
+  // }
+  updateBook(updated: Book) {
+    const index = this.books.findIndex(b => b.title == updated.title);
+    this.books[index] = updated;
+    localStorage.setItem('books', JSON.stringify(this.books));
   
+  }
 
   // deleteBook(id: number) {
   //   this.books = this.books.filter(book => book.id !== id);

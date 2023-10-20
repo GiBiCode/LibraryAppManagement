@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Book, books} from '../../../books';
 import { debounceTime, distinctUntilChanged, fromEvent, tap } from 'rxjs';
+import { BookService } from 'src/app/books.service';
 
 @Component({
   selector: 'app-book-list',
@@ -8,11 +9,19 @@ import { debounceTime, distinctUntilChanged, fromEvent, tap } from 'rxjs';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent {
+
+  
   books = [...books]; 
   
-  items: Book[] = [];
+  // items: Book[] = [];
   // addBook(book: Book){
   //   this.items.push(book);
+  // }
+
+  // books: Book[] = [];
+
+  // constructor(private bookService: BookService) {
+  //   this.books = this.bookService.getBooks(); // Obtiene la lista de libros desde el servicio
   // }
 
 
