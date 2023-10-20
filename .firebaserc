@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "applibrary-6b4b9"
+  },
+  "targets": {
+    "applibrary-6b4b9": {
+      "hosting": {
+        "LibraryAppManagement": [
+          "applibrary-6b4b9"
+        ]
+      }
+    }
   }
 }
